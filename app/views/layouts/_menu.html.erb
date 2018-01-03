@@ -1,0 +1,46 @@
+<nav class="navbar is-fixed-top" role="navigation" aria-label="dropdown navigation">
+
+  <div class="navbar-brand">
+    <%= link_to root_path, class: "navbar-item" do %>
+      <p class="title">Artifact</p>
+    <% end %>
+  </div>
+
+  <div class="navbar-menu">
+    <div class="navbar-end">
+
+      <div class="navbar-item">
+        <% if user_signed_in? %>
+          <%= link_to 'Logout', destroy_user_session_path, method: :delete %>
+        <% else %>
+          <%= link_to 'Login', new_user_session_path %>
+        <% end %>
+      </div>
+
+      <div class="navbar-item">
+        <% if user_signed_in? %>
+          <%= link_to 'Edit profile', edit_user_registration_path %>
+        <% else %>
+          <%= link_to 'Sign up', new_user_registration_path %>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</nav>
+
+<!--     <div class="navbar-dropdown">
+      <a class="navbar-item">
+        Overview
+      </a>
+      <a class="navbar-item is-active">
+        Elements
+      </a>
+      <a class="navbar-item">
+        Components
+      </a>
+      <hr class="navbar-divider">
+      <div class="navbar-item">
+        Version 0.6.1
+      </div>
+    </div> -->

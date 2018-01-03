@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="has-navbar-fixed-top">
   <head>
     <title>Artifact</title>
     <%= csrf_meta_tags %>
@@ -9,8 +9,16 @@
   </head>
 
   <body>
+    <%= render 'layouts/menu' %>
+
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= yield %>
+
+    <section class="section">
+      <div class="container">
+        <%= yield %>
+      </div>
+    </section>
+
   </body>
 </html>

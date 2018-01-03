@@ -26,6 +26,8 @@ gem 'webpacker', git: 'https://github.com/rails/webpacker.git'
 gem 'devise'
 # Devise may use omniauth
 gem 'omniauth'
+# Bulma for styles
+gem 'bulma-rails', github: 'joshuajansen/bulma-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
