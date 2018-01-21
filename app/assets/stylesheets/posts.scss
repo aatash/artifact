@@ -1,0 +1,55 @@
+// Place all the styles related to the Posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.index-new-post-form {
+  background-color: #F9F9F9;
+  padding: 10px 10px 10px 10px ;
+  // max-width: 750px;
+}
+
+trix-editor {
+  background-color: white;
+}
+
+trix-toolbar {
+  // background-color: white;
+}
+
+.trix-button-group.trix-button-group--block-tools, .trix-button-group.trix-button-group--history-tools {
+  // display: none;
+}
+
+.post-list {
+  // padding-top: 10px;
+  border-top: 1px solid rgba(219, 219, 219, 0.5);
+
+  // max-width: 750px;
+
+  article.media {
+    background-color: #F9F9F9;
+    padding: 10px 10px 10px 10px ;
+    border-radius: 5px;
+    margin-top: 0;
+
+    .content {
+      margin-bottom: 0;
+
+      ul.image-list {
+        margin-left: 0;
+
+        li {
+          display: inline;
+        }
+      }
+
+      img {
+        object-fit: cover;
+        width:230px;
+        height:230px;
+      }
+    }
+  }
+
+}
+

@@ -1,0 +1,34 @@
+<% content_for :content do %>
+<section class="section">
+  <div class="container">
+    <div class="columns">
+  <div class="column is-one-fifth">
+    <aside class="menu">
+      <p class="menu-label">
+        Personal
+      </p>
+      <ul class="menu-list">
+        <!-- <li><a class="is-active">My Archive</a></li> -->
+        <li><%= link_to 'My Notebook', posts_path, id: "my-archive-link" %></li>
+        <li><a>Shared With Me</a></li>
+      </ul>
+      <p class="menu-label">
+        Groups
+      </p>
+      <ul class="menu-list">
+        <li><a>Latitude</a></li>
+      </ul>
+      <p class="menu-label">
+        <a>+ Create or join a team</a>
+      </p>
+    </aside>
+  </div>
+  <div class="column">
+    <!-- A better subtemplate name should be here @TODO -->
+    <%= content_for?(:home_content) ? yield(:home_content) : yield %>
+  </div>
+</div>
+  </div>
+</section>
+<% end %>
+<%= render template: "layouts/application" %>

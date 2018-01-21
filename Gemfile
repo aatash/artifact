@@ -28,6 +28,10 @@ gem 'devise'
 gem 'omniauth'
 # Bulma for styles
 gem 'bulma-rails', github: 'joshuajansen/bulma-rails'
+# Trix rich-text editor
+gem 'trix'
+
+gem 'jquery-rails', github: 'rails/jquery-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

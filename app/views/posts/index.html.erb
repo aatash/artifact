@@ -1,0 +1,96 @@
+<div class="columns">
+<% if false %>
+<p class="title">My Notebook <%= link_to '+ New Post', new_post_path, class: "button is-link is-pulled-right" %>
+</p>
+<% end %>
+<div class="column">
+<% if true %>
+<%= form_for :post, id: "new-post-form" do |f| %>
+  <article class="media index-new-post-form">
+    <div class="media-content">
+      <div class="field">
+        <p class="control">
+          <% if false %>
+          <%= f.text_area value: linkifyHtml(content), class: "textarea", id: "new-post-textarea", placeholder: "Add a note or any links here..." %>
+          <% end %>
+          <%= f.hidden_field :content, id: "trix_content_id" %>
+          <trix-editor input="trix_content_id" placeholder="Add a note or any links here..." id: "new-post-textarea"></trix-editor>
+        </p>
+      </div>
+
+      <nav class="level">
+        <div class="level-left">
+          <div class="level-item">
+            <div class="field">
+            <%= f.file_field :images, multiple: true, type: "file", id: "file-input" %>
+            </div>
+          </div>
+        </div>
+        <div class="level-right">
+          <div class="level-item">
+            <label class="checkbox">
+              <!-- <input type="checkbox"> Press enter to post &nbsp; -->
+            </label>
+            <%= f.submit "Post (⌘ + Enter)", id: "new-post-submit", class: "button is-link" %>
+          </div>
+        </div>
+      </nav>
+    </div>
+  </article>
+<% end %>
+<% end %>
+
+
+
+
+<div class="post-list">
+    <% @posts.each do |post| %>
+      <article class="media">
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <%= link_to post do %>
+              <small><%="#{time_ago_in_words(post.created_at)} ago"%></small>
+              <% end %>
+              <br>
+              <%= post.content.html_safe %>
+            </p>
+            <% if post.images.length > 0 %>
+            <ul class="image-list">
+              <% post.images.each do |image| %>
+                <%= image_tag(url_for(image)) %>
+              <% end %>
+            </ul>
+            <% end %>
+          </div>
+        </div>
+        <div class="media-right">
+          <%= link_to post, method: :delete, data: { confirm: 'Are you sure?' } do %>
+            <button class="delete"></button>
+          <% end %>
+        </div>
+      </article>
+    <% end %>
+</div>
+</div>
+<div class="column is-one-fourth">
+  <div class="field">
+    <div class="control is-large">
+      <input class="input is-large is-rounded" type="text" placeholder="Search">
+    </div>
+  </div>
+
+  <small>Popular tags</small>
+  <div class="tags">
+    <span class="tag is-large">Artifact/Inkwire</span>
+    <span class="tag is-large">Teaching</span>
+    <span class="tag is-info is-large">Project Planning&nbsp;<button class="delete"></button></span>
+    <span class="tag is-large">Random</span>
+
+  </div>
+</div>
+</div>
+
+<script>
+  $("#my-archive-link").addClass("is-active")
+</script>

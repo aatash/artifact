@@ -6,19 +6,35 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag 'fontawesome-all', 'data-turbolinks-track': 'reload' %>
+
+    <%= javascript_include_tag 'linkify', 'data-turbolinks-track': 'reload' %>
+
   </head>
 
   <body>
     <%= render 'layouts/menu' %>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
-
-    <section class="section">
-      <div class="container">
-        <%= yield %>
+    <% if notice or alert %>
+    <div class="notification-bar">
+      <% if notice %>
+      <div class="notice notification is-thinner is-success">
+        <!-- <button class="delete"></button> -->
+        <%= notice %>
       </div>
-    </section>
+      <% elsif alert %>
+      <div class="alert notification is-danger">
+        <!-- <button class="delete"></button> -->
+        <%= alert %>
+      </div>
+      <% end %>
+    </div>
+    <% end %>
+
+    <div id="content"><%= content_for?(:content) ? yield(:content) : yield %></div>
 
   </body>
 </html>

@@ -1,0 +1,32 @@
+<article class="media">
+  <div class="media-content">
+    <%= form_with(model: post, local: true) do |form| %>
+      <% if post.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+          <ul>
+          <% post.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= form.hidden_field :content, id: "trix_content_id" %>
+        <trix-editor input="trix_content_id" class="trix-content"></trix-editor>
+      </div>
+
+      <div class="field">
+        <%= form.label :images, class: "title is-6" %>
+        <br>
+        <%= form.file_field :images, multiple: true %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit "Save", class: "button is-link" %>
+      </div>
+    <% end %>
+  </div>
+</article>

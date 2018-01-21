@@ -10,6 +10,27 @@
 // Read Sprockets README (https://github.com/rails/sprockets#sprockets-directives) for details
 // about supported directives.
 //
-//= require rails-ujs
+//= require jquery
+//= require jquery_ujs
 //= require turbolinks
+//= require trix
 //= require_tree .
+
+// Open all external links in a new window
+addEventListener("click", function(event) {
+  console.log(event)
+  var el = event.target
+
+  if (el.tagName === "A" && !el.isContentEditable && el.host !== window.location.host) {
+    el.setAttribute("target", "_blank")
+  }
+}, true)
+
+// Hide the notification/flash in 2.5 sec
+$(document).ready(function() {
+  if ($(".notification-bar").length) {
+    setTimeout(function() {
+      $(".notification-bar").slideUp()
+    }, 2500)
+  }
+})
