@@ -5,3 +5,9 @@ local:
 test:
   service: Disk
   root: <%= Rails.root.join("tmp/storage") %>
+
+google:
+  service: GCS
+  project: artifact-192120
+  keyfile: <%= Rails.root.join("config/Artifact-b8675900b564.json") %>
+  bucket: artifact-prototype
