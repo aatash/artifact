@@ -9,5 +9,5 @@ test:
 google:
   service: GCS
   project: artifact-192120
-  keyfile: <%= Rails.root.join("config/Artifact-b8675900b564.json") %>
+  keyfile: <%= ENV['GCSKEY'] || Rails.root.join("config/Artifact-b8675900b564.json") %>
   bucket: artifact-prototype
